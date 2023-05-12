@@ -5,7 +5,13 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/out/${fileBasenameNoExtension}",
-            "args": [],
+            "args": [
+                "-fshow-column", 
+                "-fno-diagnostics-show-caret",
+                "-Wall", 
+                "-pedantic-errors",
+                "-Werror=return-type-std=c++1z"
+            ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
