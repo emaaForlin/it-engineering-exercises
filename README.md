@@ -1,5 +1,5 @@
 # College Projects
 
-In this repository I'll be uploading my college exercises, just like a backup.
+Here I'll upload my coding exercises, just as a backup.
 
 ---
