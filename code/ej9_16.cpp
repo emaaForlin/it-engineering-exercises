@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-
+   
 struct parciales {
     string apellido;
     string nombre;
@@ -24,10 +24,10 @@ int main() {
 	parciales parc;
 	parc.nombre = "Emanuel";
 	parc.apellido = "Forlin";
-	parc.examen[0] = 20;
-	parc.examen[1] = 40;
-	parc.recuperatorio[0] = 10;
-	parc.recuperatorio[1] = 20;
+	parc.examen[0] = 50;
+	parc.examen[1] = 20;
+	parc.recuperatorio[0] = 40;
+	parc.recuperatorio[1] = 100;
 	
 	resultado_final res;
 	res = condicion(parc);
@@ -55,7 +55,7 @@ resultado_final condicion(parciales p) {
 		nota2 = p.recuperatorio[1];
 	}
 	
-	float promedio = (nota1+2*nota2)/3.0;
+	float promedio = (0.5 + nota1+2*nota2)/3.0;
 	r.nota_final = promedio;
 	
 	if (((p.examen[0]>=60 || p.recuperatorio[0]>=60) && (p.examen[1]>=60 || p.recuperatorio[1]>=60) && promedio>=70)) {
