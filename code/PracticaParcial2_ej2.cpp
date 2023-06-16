@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int ACE=0; int ENF=1; int TG=2; int DF=3; int Q=4;
+const int ACE=0; const int ENF=1; const int TG=2; const int DF=3; const int Q=4;
 
 struct Evento { string tipo; int jugador; };
 
