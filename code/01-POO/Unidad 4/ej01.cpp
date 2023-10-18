@@ -14,7 +14,7 @@ public:
 
         aux.num = (aux.num * s.den)+(s.num * aux.den);
         aux.den *= s.den;
-        return aux;;
+        return aux;
     }
     Racional operator* (Racional s) {
         Racional aux = *this;
@@ -27,10 +27,20 @@ public:
         aux.num *= x;
         return aux;
     }
+    Racional operator ++() {
+        this->num += this->den;
+        return *this; 
+    }
+    Racional operator ++(int) {
+        Racional aux = *this;
+        aux.num += aux.den;
+
+        return aux;
+    }
 };
 
 int main() {
-    Racional a(3, 5), b(2, 3), c(0,1);
+    Racional a(3+6, 5+4), b(2, 3), c(0,1);
     cout << "a= " << a.VerNum() << "/" << a.VerDen() << endl;
     cout << "b= " << b.VerNum() << "/" << b.VerDen() << endl;
     cout << "c= " << c.VerNum() << "/" << c.VerDen() << endl;
@@ -44,6 +54,12 @@ int main() {
 
     c=a*2;
     cout << "c= " << c.VerNum() << "/" << c.VerDen() << endl << endl;
+
+    a=a++;
+    cout << "a= " << a.VerNum() << "/" << a.VerDen() << endl << endl;
+
+    ++b;
+    cout << "b= " << b.VerNum() << "/" << b.VerDen() << endl << endl;
 
 
 
