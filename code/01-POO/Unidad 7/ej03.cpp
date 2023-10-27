@@ -18,20 +18,21 @@ diversos tipos de datos (int,double,string, etc).
 
 using namespace std;
 
+
 template<typename T>
 class VectorDinamico {
 private:
     T *data;
     int size;
 public:
-    VectorDinamico(int s) {
+    template<typename PFnc>
+    VectorDinamico(int s, PFnc rand_gen) {
         size = s;
         data = new T[size];
 
         for (int i=0; i < size; ++i) {
-            //*(data+i) += 'A' + (rand()%('Z'-'A'));
-
-            data[i] += 'A' + (rand()%('Z'-'A'));
+            data[i] = rand_gen();
+            //data[i] += 'A' + (rand()%('Z'-'A'));
         }
     }
     ~VectorDinamico() {
@@ -44,15 +45,25 @@ public:
     }
 };
 
+string rand_str() {
+    string s;
+    s += 'A' + (rand()%('Z'-'A'));
+    return s;
+}
+
+int rand_int() {
+    int a = rand();
+    return a;
+}
 
 int main() {
     srand(time(NULL));
-    VectorDinamico<int> enteros(10);
-    VectorDinamico<float> reales(10);
-    VectorDinamico<string> cadenas(10);
+    VectorDinamico<int> enteros(10, rand_int);
+    VectorDinamico<float> reales(10, rand);
+    VectorDinamico<string> cadenas(10, rand_str);
 
     for (int i=0; i<10; ++i) {
-        cout << setw(4) << enteros[i] << setw(4) << reales[i] << setw(4) << cadenas[i] << endl;
+        cout << setw(10) << enteros[i] << setw(20) << reales[i] << setw(10) << cadenas[i] << endl;
     }
     return 0;
 }
